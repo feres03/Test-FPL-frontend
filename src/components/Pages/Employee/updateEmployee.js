@@ -1,6 +1,5 @@
 import { Formik } from 'formik';
 import React, { useState, useEffect } from 'react'
-import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -23,7 +22,7 @@ function UpdateEmployee() {
 
     return (
         <div className='container mt-5'>
-            <h3 className='text-center text-secondary'>Add Employee</h3>
+            <h3 className='text-center text-secondary'>Update Employee</h3>
             <div className="row  d-flex justify-content-center">
                 <Formik
                     initialValues={employee || { nom: '', prenom: '', email: '', categorie: '', specialite: '', numCnss: '', age: '', disponibilite: '' }}

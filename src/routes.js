@@ -4,8 +4,10 @@ const login = lazy(() => import('./components/AuthComponents/Login'))
 const CreateMission = lazy(() => import('./components/Pages/Mission/CreateMission'))
 const ListMission = lazy(() => import('./components/Pages/Mission/ListMission'))
 const ListEmployee = lazy(() => import('./components/Pages/Employee/ListEmployee'))
+const UpdateMission = lazy(() => import('./components/Pages/Mission/updateMission'))
 const CreateEmployee = lazy(() => import('./components/Pages/Employee/CreateEmployee'))
 const UpdateEmployee = lazy(() => import('./components/Pages/Employee/updateEmployee'))
+
 
 const routes = [
     {
@@ -30,6 +32,12 @@ const routes = [
         path: '/missions',
         element: ListMission,
         name: 'mission List',
+        exact: true
+    },
+    {
+        path: '/Updatemission/:id',
+        element: UpdateMission,
+        name: 'update mission',
         exact: true
     },
     {
