@@ -8,7 +8,6 @@ const ListEmployee = () => {
   const fetchdata = async () => {
     const list = await axios.get('http://localhost:4000/api/employee')
     setEmployees(list.data.list)
-    console.log(employees);
   }
   useEffect(() => {
     fetchdata()
@@ -18,6 +17,7 @@ const ListEmployee = () => {
     await axios.delete(`http://localhost:4000/api/employee/${_id}`)
     fetchdata()
   }
+
   return (
     <div>
       <table className="table table-striped mt-3" style={{ backgroundColor: '#e3f2fd' }}>
@@ -28,6 +28,7 @@ const ListEmployee = () => {
             <th>Sepcialite</th>
             <th>disponibilite</th>
             <th>Actions</th>
+            <th>Affectation</th>
 
           </tr>
         </thead>
@@ -44,7 +45,11 @@ const ListEmployee = () => {
                     <Link to={`/UpdateEmployee/${employee._id}`} className='btn btn-success me-2'>Update</Link>
                     <button className='btn btn-danger' onClick={() => { handleDelete(employee._id) }}>Delete</button>
                   </td>
+                  <td >
+                    <Link to={`/Affect/${employee._id}`} className='btn btn-success me-2'>Affecter</Link>
 
+                    <button className='btn btn-primary'>Dessafacter</button>
+                  </td>
 
                 </tr>
               )
